@@ -1,0 +1,50 @@
+SA SEGMENT PARA PUBLIC 'CODE'
+ASSUME CS: SA
+ORG 1000H
+START:
+
+	MOV AL,80H
+	OUT 1FH,AL
+
+	MOV AL,0FFH 
+	OUT 19H,AL
+	
+	BEGIN:
+	
+	MOV SI,OFFSET DATA 
+	MOV BX,03H		
+	
+	TOP:
+	
+	MOV AL,BYTE PTR CS:[SI] ;converting the value in the pointers address and saving it in AL
+	OUT 1BH,AL
+
+	MOV CX,0FFFFH
+	L1: LOOP L1
+	
+	MOV CX,0FFFFH
+	L2: LOOP L2
+	
+	MOV CX,0FFFFH
+	L3: LOOP L3
+	
+	MOV CX,0FFFFH
+	L4: LOOP L4
+	
+	INC SI         
+	DEC BX    
+	CMP BX,0000H 
+	JE EXIT 
+	JMP TOP	 
+	
+	DATA:
+	DB 09H  
+	DB 0BH 
+	DB 0FH 
+	
+	EXIT:
+	
+	JMP BEGIN
+	
+SA ENDS
+END START

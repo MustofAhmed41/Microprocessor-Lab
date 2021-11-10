@@ -1,0 +1,35 @@
+SA SEGMENT PARA PUBLIC 'CODE'
+ASSUME CS: SA
+ORG 1000H
+START:
+
+	MOV AL,80H  ; activate in I/O devices using the control register
+	OUT 1FH,AL
+	
+SSD:
+
+	MOV AL,086H  ; printing E
+	OUT 19H,AL
+	
+	MOV CX,0FFFFH ; delay 
+	L1:
+	LOOP L1
+
+	MOV AL,0B0H ; printing 3
+	OUT 19H,AL
+	
+	MOV CX,0FFFFH  ; delay
+	L2:
+	LOOP L2
+
+	MOV AL,0C0H  ; printing 0
+	OUT 19H,AL
+	
+	MOV CX,0FFFFH ; delay 
+	L3:
+	LOOP L3
+	
+    JMP SSD
+	
+SA ENDS
+END START

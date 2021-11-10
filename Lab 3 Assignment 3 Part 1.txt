@@ -1,0 +1,164 @@
+SA SEGMENT PARA PUBLIC 'CODE'
+ASSUME CS: SA
+ORG 1000H
+
+START:
+
+	MOV AL,80H
+	OUT 1FH,AL
+	
+	MOV AL,0FFH 
+	OUT 19H,AL
+	
+	BEGIN:	
+	
+	MOV SI,OFFSET DATA 
+	MOV BX,006CH
+	
+	TOP: 
+	
+	MOV AL,BYTE PTR CS:[SI] 
+	OUT 18H, AL           
+	
+	INC SI          
+	DEC BX 
+		
+	MOV AL,BYTE PTR CS:[SI] 
+	OUT 1AH, AL
+	
+	INC SI          
+	DEC BX 
+	
+	MOV AL,BYTE PTR CS:[SI] 
+	OUT 1CH, AL
+	
+	MOV CX,0FFFFH  
+	L1 : LOOP L1
+	
+	MOV CX,0FFFFH
+	L2 : LOOP L2
+
+	INC SI         
+	DEC BX     
+	CMP BX,0000H 
+	JE BEGIN 
+	JMP TOP
+	
+	DATA:                     	
+	DB FEH   ;Show Orange in Row 0 Column 4
+	DB FEH
+	DB 10H
+	
+	DB FEH   ;Show Orange in Row 0 Column 3
+	DB FEH
+	DB 08H
+	
+	DB FEH   ;Show Orange in Row 0 Column 2
+	DB FEH
+	DB 04H
+	
+	
+	DB FEH   ;Show Orange in Row 0 Column 0
+	DB FEH
+	DB 01H
+	
+	
+	DB FDH   ;Show Orange in Row 1 Column 0
+	DB FDH
+	DB 01H
+	
+	
+	DB FDH   ;Show Orange in Row 1 Column 1
+	DB FDH
+	DB 02H
+	
+	DB FBH   ;Show Orange in Row 2 Column 1
+	DB FBH
+	DB 02H
+	
+	DB F7H   ;Show Orange in Row 3 Column 1
+	DB F7H
+	DB 02H
+	
+	DB EFH   ;Show Orange in Row 4 Column 1
+	DB EFH
+	DB 02H
+	
+	
+	DB EFH   ;Show Orange in Row 4 Column 2
+	DB EFH
+	DB 04H
+	
+	DB DFH   ;Show Orange in Row 5 Column 2
+	DB DFH
+	DB 04H
+	
+	DB BFH   ;Show Orange in Row 6 Column 2
+	DB BFH
+	DB 04H
+	
+	DB BFH   ;Show Orange in Row 6 Column 3
+	DB BFH
+	DB 08H
+	
+	DB 7FH   ;Show Orange in Row 7 Column 3
+	DB 7FH
+	DB 08H
+	
+	DB 7FH   ;Show Orange in Row 7 Column 4
+	DB 7FH
+	DB 10H
+	
+	DB 7FH   ;Show Orange in Row 7 Column 5
+	DB 7FH
+	DB 20H
+	
+	
+	DB 7FH   ;Show Orange in Row 7 Column 6
+	DB 7FH
+	DB 40H
+	
+	DB 7FH   ;Show Orange in Row 7 Column 7
+	DB 7FH
+	DB 80H
+	
+	DB BFH   ;Show Orange in Row 6 Column 7
+	DB BFH
+	DB 80H
+	
+	DB DFH   ;Show Orange in Row 5 Column 7
+	DB DFH
+	DB 80H
+
+	DB DFH   ;Show Orange in Row 5 Column 6
+	DB DFH
+	DB 40H
+	
+	
+	DB EFH   ;Show Orange in Row 4 Column 6
+	DB EFH
+	DB 40H
+	
+	DB F7H   ;Show Orange in Row 3 Column 6
+	DB F7H
+	DB 40H
+	
+	DB F7H   ;Show Orange in Row 3 Column 5
+	DB F7H
+	DB 20H
+	
+	DB FBH   ;Show Orange in Row 2 Column 5
+	DB FBH
+	DB 20H
+	
+	DB FDH   ;Show Orange in Row 1 Column 5
+	DB FDH
+	DB 20H
+	
+	
+	DB FDH   ;Show Orange in Row 1 Column 4
+	DB FDH
+	DB 10H
+
+SA ENDS	
+END START

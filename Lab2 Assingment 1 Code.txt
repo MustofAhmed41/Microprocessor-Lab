@@ -1,0 +1,65 @@
+SA SEGMENT PARA PUBLIC 'CODE'
+ASSUME CS: SA
+ORG 1000H
+
+START:
+	;control register turn on
+	MOV AL,80H
+	OUT 1FH,AL
+	
+	BEGIN:	
+	
+	MOV SI,OFFSET DATA ; initializing pointer to array
+	MOV BX,13H
+	
+	TOP: 
+	
+	MOV AL,BYTE PTR CS:[SI]  ; converting the value in the pointers address  and saving it in AL
+	OUT 19H,AL            ; show output
+	
+	MOV CX,0FFFFH  ; create a delay
+	L1 : LOOP L1
+	
+	MOV CX,0FFFFH
+	L2 : LOOP L2
+	
+	MOV CX,0FFFFH
+	L3 : LOOP L3
+	
+	MOV CX,0FFFFH
+	L4 : LOOP L4	
+
+	INC SI          ; point to the next data
+	DEC BX      ; because SI cannot keep track of number, we have to use BX, which contains the number
+	; the number of data in the data block
+	CMP BX,0000H ; checking if BX zero
+	JE EXIT ; exit if BX = 0
+	JMP TOP	 ; else go to top	
+	
+	DATA:                     	
+	DB 0FEH  ; start displaying E
+	DB 0DEH
+	DB 09EH
+	DB 08EH
+	DB 086H
+	DB 0FFH  ; reset
+	DB 0FEH  ; start displaying 3
+	DB 0FCH
+	DB 0BCH
+	DB 0B8H
+	DB 0B0H
+	DB 0FFH  ; reset
+	DB 0FEH  ;start displaying 0
+	DB 0FCH
+	DB 0F8H
+	DB 0F0H
+	DB 0E0H
+	DB 0C0H
+	DB 0FFH
+	
+	EXIT:
+		
+	JMP BEGIN
+
+SA ENDS	
+END START

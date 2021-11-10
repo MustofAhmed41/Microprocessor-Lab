@@ -1,0 +1,450 @@
+DM SEGMENT PARA PUBLIC 'CODE'
+ASSUME CS: DM
+ORG 1000H
+
+
+START:
+	MOV AL, 80H
+	OUT 1FH, AL
+	
+	MOV AL,0FFH ; turn off seven segment display
+	OUT 19H,AL
+	
+BEGIN:
+	
+	;Show Orange in Row 0 Column 4
+	MOV AL, FEH
+	OUT 18H, AL
+	MOV AL, FEH
+	OUT 1AH, AL
+	MOV AL, 10H
+	OUT 1CH, AL
+
+	;For delay
+	MOV CX, 0FFFFH
+	L1: LOOP L1
+	MOV CX, 0FFFFH
+	L2: LOOP L2
+	
+	
+	;Show Orange in Row 0 Column 3
+	MOV AL, FEH
+	OUT 18H, AL
+	MOV AL, FEH
+	OUT 1AH, AL
+	MOV AL, 08H
+	OUT 1CH, AL
+
+
+	MOV CX, 0FFFFH
+	L3: LOOP L3
+	MOV CX, 0FFFFH
+	L4: LOOP L4
+	
+	
+	
+	;Show Orange in Row 0 Column 2
+	MOV AL, FEH
+	OUT 18H, AL
+	MOV AL, FEH
+	OUT 1AH, AL
+	MOV AL, 04H
+	OUT 1CH, AL
+
+
+	MOV CX, 0FFFFH
+	L5: LOOP L5
+	MOV CX, 0FFFFH
+	L6: LOOP L6
+	
+	
+	;Show Orange in Row 0 Column 1
+	MOV AL, FEH
+	OUT 18H, AL
+	MOV AL, FEH
+	OUT 1AH, AL
+	MOV AL, 02H
+	OUT 1CH, AL
+
+
+	MOV CX, 0FFFFH
+	L7: LOOP L7
+	MOV CX, 0FFFFH
+	L8: LOOP L8
+	
+	
+	;Show Orange in Row 0 Column 0
+	MOV AL, FEH
+	OUT 18H, AL
+	MOV AL, FEH
+	OUT 1AH, AL
+	MOV AL, 01H
+	OUT 1CH, AL
+
+
+	MOV CX, 0FFFFH
+	L9: LOOP L9
+	MOV CX, 0FFFFH
+	L10: LOOP L10
+	
+	
+	;Show Orange in Row 1 Column 0
+	MOV AL, FDH
+	OUT 18H, AL
+	MOV AL, FDH
+	OUT 1AH, AL
+	MOV AL, 01H
+	OUT 1CH, AL
+
+
+	MOV CX, 0FFFFH
+	L11: LOOP L11
+	MOV CX, 0FFFFH
+	L12: LOOP L12
+	
+	
+	;Show Orange in Row 1 Column 1
+	MOV AL, FDH
+	OUT 18H, AL
+	MOV AL, FDH
+	OUT 1AH, AL
+	MOV AL, 02H
+	OUT 1CH, AL
+
+
+	MOV CX, 0FFFFH
+	L13: LOOP L13
+	MOV CX, 0FFFFH
+	L14: LOOP L14
+	
+	
+	;Show Orange in Row 2 Column 1
+	MOV AL, FBH
+	OUT 18H, AL
+	MOV AL, FBH
+	OUT 1AH, AL
+	MOV AL, 02H
+	OUT 1CH, AL
+
+
+	MOV CX, 0FFFFH
+	L15: LOOP L15
+	MOV CX, 0FFFFH
+	L16: LOOP L16
+	
+	
+	;Show Orange in Row 3 Column 1
+	MOV AL, F7H
+	OUT 18H, AL
+	MOV AL, F7H
+	OUT 1AH, AL
+	MOV AL, 02H
+	OUT 1CH, AL
+
+
+	MOV CX, 0FFFFH
+	L17: LOOP L17
+	MOV CX, 0FFFFH
+	L18: LOOP L18
+	
+	
+	;Show Orange in Row 4 Column 1
+	MOV AL, EFH
+	OUT 18H, AL
+	MOV AL, EFH
+	OUT 1AH, AL
+	MOV AL, 02H
+	OUT 1CH, AL
+
+
+	MOV CX, 0FFFFH
+	L19: LOOP L19
+	MOV CX, 0FFFFH
+	L20: LOOP L20
+	
+	
+	
+	;Show Orange in Row 4 Column 2
+	MOV AL, EFH
+	OUT 18H, AL
+	MOV AL, EFH
+	OUT 1AH, AL
+	MOV AL, 04H
+	OUT 1CH, AL
+
+
+	MOV CX, 0FFFFH
+	L21: LOOP L21
+	MOV CX, 0FFFFH
+	L22: LOOP L22
+	
+	
+	;Show Orange in Row 5 Column 2
+	MOV AL, DFH
+	OUT 18H, AL
+	MOV AL, DFH
+	OUT 1AH, AL
+	MOV AL, 04H
+	OUT 1CH, AL
+
+
+	MOV CX, 0FFFFH
+	L23: LOOP L23
+	MOV CX, 0FFFFH
+	L24: LOOP L24
+	
+	
+	;Show Orange in Row 6 Column 2
+	MOV AL, BFH
+	OUT 18H, AL
+	MOV AL, BFH
+	OUT 1AH, AL
+	MOV AL, 04H
+	OUT 1CH, AL
+
+
+	MOV CX, 0FFFFH
+	L25: LOOP L25
+	MOV CX, 0FFFFH
+	L26: LOOP L26
+	
+	
+	
+	;Show Orange in Row 6 Column 3
+	MOV AL, BFH
+	OUT 18H, AL
+	MOV AL, BFH
+	OUT 1AH, AL
+	MOV AL, 08H
+	OUT 1CH, AL
+
+
+	MOV CX, 0FFFFH
+	L27: LOOP L27
+	MOV CX, 0FFFFH
+	L28: LOOP L28
+	
+	
+	
+	;Show Orange in Row 7 Column 3
+	MOV AL, 7FH
+	OUT 18H, AL
+	MOV AL, 7FH
+	OUT 1AH, AL
+	MOV AL, 08H
+	OUT 1CH, AL
+
+
+	MOV CX, 0FFFFH
+	L29: LOOP L29
+	MOV CX, 0FFFFH
+	L30: LOOP L30
+	
+	
+	
+	;Show Orange in Row 7 Column 4
+	MOV AL, 7FH
+	OUT 18H, AL
+	MOV AL, 7FH
+	OUT 1AH, AL
+	MOV AL, 10H
+	OUT 1CH, AL
+
+
+	MOV CX, 0FFFFH
+	L31: LOOP L31
+	MOV CX, 0FFFFH
+	L32: LOOP L32
+	
+	
+	;Show Orange in Row 7 Column 5
+	MOV AL, 7FH
+	OUT 18H, AL
+	MOV AL, 7FH
+	OUT 1AH, AL
+	MOV AL, 20H
+	OUT 1CH, AL
+
+
+	MOV CX, 0FFFFH
+	L33: LOOP 33
+	MOV CX, 0FFFFH
+	L34: LOOP 34
+
+	
+	
+	;Show Orange in Row 7 Column 6
+	MOV AL, 7FH
+	OUT 18H, AL
+	MOV AL, 7FH
+	OUT 1AH, AL
+	MOV AL, 40H
+	OUT 1CH, AL
+
+
+	MOV CX, 0FFFFH
+	L35: LOOP L35
+	MOV CX, 0FFFFH
+	L36: LOOP L36
+	
+	
+	
+	;Show Orange in Row 7 Column 7
+	MOV AL, 7FH
+	OUT 18H, AL
+	MOV AL, 7FH
+	OUT 1AH, AL
+	MOV AL, 80H
+	OUT 1CH, AL
+
+
+	MOV CX, 0FFFFH
+	L37: LOOP L37
+	MOV CX, 0FFFFH
+	L38: LOOP L38
+	
+	
+	
+	;Show Orange in Row 6 Column 7
+	MOV AL, BFH
+	OUT 18H, AL
+	MOV AL, BFH
+	OUT 1AH, AL
+	MOV AL, 80H
+	OUT 1CH, AL
+
+
+	MOV CX, 0FFFFH
+	L39: LOOP L39
+	MOV CX, 0FFFFH
+	L40: LOOP L40
+	
+	
+	;Show Orange in Row 5 Column 7
+	MOV AL, DFH
+	OUT 18H, AL
+	MOV AL, DFH
+	OUT 1AH, AL
+	MOV AL, 80H
+	OUT 1CH, AL
+
+
+	MOV CX, 0FFFFH
+	L41: LOOP L41
+	MOV CX, 0FFFFH
+	L42: LOOP L42
+	
+	
+	;Show Orange in Row 5 Column 6
+	MOV AL, DFH
+	OUT 18H, AL
+	MOV AL, DFH
+	OUT 1AH, AL
+	MOV AL, 40H
+	OUT 1CH, AL
+
+
+	MOV CX, 0FFFFH
+	L43: LOOP L43
+	MOV CX, 0FFFFH
+	L44: LOOP 44
+	
+	
+	;Show Orange in Row 4 Column 6
+	MOV AL, EFH
+	OUT 18H, AL
+	MOV AL, EFH
+	OUT 1AH, AL
+	MOV AL, 40H
+	OUT 1CH, AL
+
+
+	MOV CX, 0FFFFH
+	L45: LOOP L45
+	MOV CX, 0FFFFH
+	L46: LOOP L46
+	
+	
+	;Show Orange in Row 3 Column 6
+	MOV AL, F7H
+	OUT 18H, AL
+	MOV AL, F7H
+	OUT 1AH, AL
+	MOV AL, 40H
+	OUT 1CH, AL
+
+
+	MOV CX, 0FFFFH
+	L47: LOOP L47
+	MOV CX, 0FFFFH
+	L48: LOOP L48
+	
+	
+	;Show Orange in Row 3 Column 5
+	MOV AL, F7H
+	OUT 18H, AL
+	MOV AL, F7H
+	OUT 1AH, AL
+	MOV AL, 20H
+	OUT 1CH, AL
+
+
+	MOV CX, 0FFFFH
+	L49: LOOP L49
+	MOV CX, 0FFFFH
+	L50: LOOP L50
+	
+	
+	;Show Orange in Row 2 Column 5
+	MOV AL, FBH
+	OUT 18H, AL
+	MOV AL, FBH
+	OUT 1AH, AL
+	MOV AL, 20H
+	OUT 1CH, AL
+
+
+	MOV CX, 0FFFFH
+	L51: LOOP L51
+	MOV CX, 0FFFFH
+	L52: LOOP L52
+	
+	
+	
+	;Show Orange in Row 1 Column 5
+	MOV AL, FDH
+	OUT 18H, AL
+	MOV AL, FDH
+	OUT 1AH, AL
+	MOV AL, 20H
+	OUT 1CH, AL
+
+
+	MOV CX, 0FFFFH
+	L53: LOOP L53
+	MOV CX, 0FFFFH
+	L54: LOOP L54
+	
+	
+	
+	;Show Orange in Row 1 Column 4
+	MOV AL, FDH
+	OUT 18H, AL
+	MOV AL, FDH
+	OUT 1AH, AL
+	MOV AL, 10H
+	OUT 1CH, AL
+
+
+	MOV CX, 0FFFFH
+	L55: LOOP L55
+	MOV CX, 0FFFFH
+	L56: LOOP L56
+	
+	
+	JMP BEGIN
+	
+	
+DM ENDS
+END START
+	

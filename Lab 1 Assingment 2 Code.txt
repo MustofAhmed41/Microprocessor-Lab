@@ -1,0 +1,40 @@
+L SEGMENT PARA PUBLIC 'CODE'
+ASSUME CS: L
+ORG 1000H
+START:
+
+	MOV AL,80H ; activate in I/O devices using 
+	the control register
+	OUT 1FH,AL
+
+	MOV AL,0FFH ; turning off seven segment 
+	;display or else it will turn on
+	OUT 19H,AL
+
+	LED:
+	
+	MOV AL,09H ;R1 and R2 turn on
+	OUT 1BH,AL
+
+	MOV CX,0FFFFH
+	L1:
+	LOOP L1
+	
+	MOV AL,0BH ; G turned on keeping R1 and R2 on
+	OUT 1BH,AL
+	
+	MOV CX,0FFFFH
+	L2:
+	LOOP L2
+	
+	MOV AL,0FH ; Y turned on keeping R1 and R2 on
+	OUT 1BH,AL
+	
+	MOV CX,0FFFFH ;for delay
+	L3:
+	LOOP L3
+	
+	JMP LED
+	
+L ENDS
+END START
